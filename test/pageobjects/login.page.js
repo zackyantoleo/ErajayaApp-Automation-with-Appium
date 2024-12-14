@@ -1,42 +1,38 @@
+import Page from "./page.js";
 
+class LoginPage {
+  // get navigateToLogin() {
+  //   return $("id:com.eraspace.app.home:id/btnLogin");
+  // }
 
-import Page from './page.js';
+  get inputUsername() {
+    return $("id:com.eraspace.app.membership:id/edtPhoneOrEmail");
+  }
 
-/**
- * sub page containing specific selectors and methods for a specific page
- */
-class LoginPage extends Page {
-    /**
-     * define selectors using getter methods
-     */
-    get inputUsername () {
-        return $('#username');
-    }
+  get inputPassword() {
+    return $("id:com.eraspace.app.membership:id/edtPassword");
+  }
 
-    get inputPassword () {
-        return $('#password');
-    }
+  get btnSubmit() {
+    return $("id:com.eraspace.app.membership:id/btnLogin");
+  }
 
-    get btnSubmit () {
-        return $('button[type="submit"]');
-    }
+  get errorElement() {
+    return $("id:com.eraspace.app.membership:id/tvError");
+  }
 
-    /**
-     * a method to encapsule automation code to interact with the page
-     * e.g. to login using username and password
-     */
-    async login (username, password) {
-        await this.inputUsername.setValue(username);
-        await this.inputPassword.setValue(password);
-        await this.btnSubmit.click();
-    }
+  async login(username, password) {
+    await this.inputUsername.setValue(username);
+    await this.inputPassword.setValue(password);
+    await this.btnSubmit.click();
+  }
 
-    /**
-     * overwrite specific options to adapt it to page object
-     */
-    open () {
-        return super.open('login');
-    }
+  /**
+   * overwrite specific options to adapt it to page object
+   */
+  // open () {
+  //     return super.open('login');
+  // }
 }
 
 export default new LoginPage();
